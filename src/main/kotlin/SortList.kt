@@ -11,8 +11,9 @@ fun main() {
     node2.next = node3
     node3.next = node4
     node4.next = node5
-    val m = sortList(node1)
-    println(m)
+//    val m = sortList(node1)
+    val m = mergeSort(node1)
+    m.printAll()
 }
 
 
@@ -31,4 +32,55 @@ fun sortList(head: ListNode?): ListNode? {
     }
 
     return initial.next
+}
+
+fun mergeSort(head: ListNode?): ListNode? {
+    //종료조건
+    if(head?.next == null) return head
+    val (left, right) = split(head)
+    return merge(mergeSort(left), mergeSort(right))
+}
+
+fun split(head: ListNode?): Pair<ListNode?, ListNode?>{
+    var slow = head
+    var fast = head
+    var separatePoint = head
+    while(fast?.next != null){
+        separatePoint = slow
+        slow = slow?.next
+        fast = fast.next?.next
+    }
+    separatePoint?.next = null
+    return Pair(head, slow)
+}
+
+fun merge(left: ListNode?, right: ListNode?): ListNode? {
+    val dummyNode = ListNode(0)
+    var currNode = dummyNode
+    var lNode = left
+    var rNode = right
+    while(lNode != null && rNode != null){
+        if(lNode.value <= rNode.value){
+            currNode.next = lNode
+            lNode = lNode.next
+        } else {
+            currNode.next = rNode
+            rNode = rNode.next
+        }
+        currNode = currNode.next!!
+    }
+    if(lNode == null){
+        currNode.next = rNode
+    } else if (rNode == null){
+        currNode.next = lNode
+    }
+    return dummyNode.next
+}
+
+fun ListNode?.printAll(){
+    var curr = this
+    while(curr!= null){
+        println(curr.value)
+        curr = curr.next
+    }
 }
