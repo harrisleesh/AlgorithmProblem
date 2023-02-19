@@ -1,4 +1,4 @@
-
+package leetcode
 /**
  * Example:
  * var li = ListNode(5)
