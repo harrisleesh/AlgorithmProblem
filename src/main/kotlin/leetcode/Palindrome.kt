@@ -1,3 +1,5 @@
+import leetcode.ListNode
+
 fun main() {
     println("hello palindrome")
     val head = ListNode(1)

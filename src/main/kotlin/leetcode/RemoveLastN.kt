@@ -1,3 +1,5 @@
+import leetcode.ListNode
+
 /**
  * Example:
  * var li = ListNode(5)

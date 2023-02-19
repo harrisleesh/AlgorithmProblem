@@ -1,3 +1,5 @@
+import leetcode.ListNode
+
 fun main() {
     println("hello odd even")
     val node1 = ListNode(1)

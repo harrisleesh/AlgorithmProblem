@@ -1,3 +1,4 @@
+import leetcode.ListNode
 import java.util.SortedSet
 
 fun main() {
