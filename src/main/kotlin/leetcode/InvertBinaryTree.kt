@@ -12,6 +12,15 @@ fun TreeNode.printAll(){
     this.left?.printAll()
     this.right?.printAll()
 }
+
+fun TreeNode.printAllPreOrder(){
+    var curr = this
+    this.left?.printAllPreOrder()
+    if(curr!=null){
+        print(this.`val`)
+    }
+    this.right?.printAllPreOrder()
+}
 fun main() {
     println("hello tree")
     val node1 = TreeNode(1)
