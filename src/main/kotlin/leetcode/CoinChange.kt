@@ -7,8 +7,8 @@ fun main() {
 //    println(coinChange(intArrayOf(1), 0))
 //    println(coinChange(intArrayOf(1, 4, 5), 8))
 //    println(coinChange(intArrayOf(2,5,10,1), 27))
-//    println(coinChange(intArrayOf(186,419,83,408), 6249))
-    println(coinChange(intArrayOf(411,412,413,414,415,416,417,418,419,420,421,422), 9864))
+    println(coinChange(intArrayOf(186, 419, 83, 408), 6249))
+//    println(coinChange(intArrayOf(411,412,413,414,415,416,417,418,419,420,421,422), 9864))
 }
 
 /**
@@ -19,5 +19,20 @@ fun main() {
  * 4. 각 값을 구하는 데에 들어가는 최소 개수를 배열로 기억해둔다. (DP)
  */
 fun coinChange(coins: IntArray, amount: Int): Int {
-    return 0
+    val amounts = Array(amount + 1) { 0 }
+
+    return coinChange(coins, amount, amounts)
+}
+
+fun coinChange(coins: IntArray, amount: Int, amounts: Array<Int>): Int {
+    if (amount < 0 || amounts[amount] == -1) return -1
+    if (amount == 0) return 0
+    if (amounts[amount] > 0) return amounts[amount]
+    val min = coins.filter { amount - it >= 0 }.map { coinChange(coins, amount - it, amounts) }.filter { it >= 0 }
+        .ifEmpty {
+            amounts[amount] = -1
+            return -1
+        }.min()
+    amounts[amount] = min + 1
+    return min + 1
 }
