@@ -1,5 +1,4 @@
 import leetcode.ListNode
-import java.util.SortedSet
 
 fun main() {
     println("hello")
@@ -23,7 +22,7 @@ fun sortList(head: ListNode?): ListNode? {
 
     var curr = head
     while(curr != null){
-        nums.add(curr.value)
+        nums.add(curr.`val`)
         curr = curr.next
     }
     nums.sort()
@@ -61,7 +60,7 @@ fun merge(left: ListNode?, right: ListNode?): ListNode? {
     var lNode = left
     var rNode = right
     while(lNode != null && rNode != null){
-        if(lNode.value <= rNode.value){
+        if(lNode.`val` <= rNode.`val`){
             currNode.next = lNode
             lNode = lNode.next
         } else {
@@ -81,7 +80,7 @@ fun merge(left: ListNode?, right: ListNode?): ListNode? {
 fun ListNode?.printAll(){
     var curr = this
     while(curr!= null){
-        println(curr.value)
+        println(curr.`val`)
         curr = curr.next
     }
 }

@@ -19,7 +19,7 @@ fun isPalindrome(head: ListNode?): Boolean {
     val str = StringBuffer()
     var curr = head
     while (curr != null) {
-        str.append(curr.value)
+        str.append(curr.`val`)
         curr = curr.next
     }
     val half = str.length / 2

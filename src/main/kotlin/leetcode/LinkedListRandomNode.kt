@@ -7,7 +7,7 @@ class Solution(head: ListNode?) {
     init {
         var temp: ListNode? = head
         while(temp != null){
-            list.add(temp.value)
+            list.add(temp.`val`)
             temp = temp.next
         }
     }

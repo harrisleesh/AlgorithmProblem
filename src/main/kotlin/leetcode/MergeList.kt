@@ -16,9 +16,9 @@ fun mergeKLists(lists: Array<ListNode?>): ListNode? {
     val sortedList = mutableListOf<Int>()
     lists.forEach {
         var node = it
-        if(node != null) sortedList.add(node.value)
+        if(node != null) sortedList.add(node.`val`)
         while (node?.next != null){
-            sortedList.add(node.next!!.value)
+            sortedList.add(node.next!!.`val`)
             node = node.next
         }
     }
@@ -37,6 +37,6 @@ fun mergeKLists(lists: Array<ListNode?>): ListNode? {
 }
 
 
-class ListNode(val value: Int) {
+class ListNode(val `val`: Int) {
     var next: ListNode? = null
 }

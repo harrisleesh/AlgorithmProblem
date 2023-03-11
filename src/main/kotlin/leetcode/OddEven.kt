@@ -25,7 +25,7 @@ fun oddEvenList(head: ListNode?): ListNode? {
     while(curr != null) {
 
         if(isEven){
-            nextNode.next = ListNode(curr.value)
+            nextNode.next = ListNode(curr.`val`)
             nextNode = nextNode.next!!
             before?.next = curr.next
         }

@@ -11,7 +11,7 @@ import leetcode.ListNode
  */
 
 fun main() {
-    println(removeNthFromEnd(ListNode(1), 1)?.value)
+    println(removeNthFromEnd(ListNode(1), 1)?.`val`)
 }
 
 fun removeNthFromEnd(head: ListNode?, n: Int): ListNode? {
