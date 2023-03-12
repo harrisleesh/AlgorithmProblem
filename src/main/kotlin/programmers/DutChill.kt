@@ -11,12 +11,11 @@ fun main() {
 
 fun solution(n: Int, m: Int, section: IntArray): Int {
     var answer = 0
-    if(section.isEmpty()) return 0
     var nextChill = section[0]
     section.forEach {
         if(it >= nextChill){
             answer++
-            nextChill += m
+            nextChill = it + m
         }
     }
     return answer
